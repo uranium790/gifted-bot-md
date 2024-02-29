@@ -1,4 +1,4 @@
-## Deploy on VPS or PC.
+## Deploy on VPS(Termux) or PC.
 - You need to Install git,ffmpeg,curl,nodejs,yarn with pm2 
    1. Install git ffmpeg curl 
       ``` 
@@ -26,7 +26,7 @@
    5. Clone Repo and install required packages
       ```
       git clone https://github.com/Giftedmaurice/gifted-bot-md
-      cd Gifted-Md
+      cd gifted-bot-md
       yarn install --network-concurrency 1
       ```
 
