@@ -146,9 +146,6 @@
   "addons": [
     {
       "plan": "heroku-postgresql:basic"
-       "options": {
-        "version": "9.5"
-      }
     } 
   ],
   "buildpacks": [
