@@ -45,26 +45,26 @@ global.waPresence= process.env.WAPRESENCE ||  "available" ; // 'unavailable' | '
 //========================= [ AUTO READ MSGS & CMDS ] =========================\\
 global.readcmds = process.env.READ_COMMAND || "true"
 global.readmessage = process.env.READ_MESSAGE || "false"
-global.readmessagefrom = process.env.READ_MESSAGE_FROM || "null,923xxxxxxxx";
+global.readmessagefrom = process.env.READ_MESSAGE_FROM || "null,254xxxxxxxx";
 
 
 //========================= [ AUTO SAVE & READ STATUS ] =========================\\
 global.read_status = process.env.AUTO_READ_STATUS || "true"
 global.save_status = process.env.AUTO_SAVE_STATUS || "false"
-global.save_status_from =  process.env.SAVE_STATUS_FROM  || "null,923xxxxxxxx";
-global.read_status_from =  process.env.READ_STATUS_FROM  ||  "254728782591,923xxxxxxxx";
+global.save_status_from =  process.env.SAVE_STATUS_FROM  || "null,254xxxxxxxx";
+global.read_status_from =  process.env.READ_STATUS_FROM  ||  "254728782591,254xxxxxxxx";
 
 global.api_smd = "https://api-smd-1.vercel.app"
 global.scan = "https://qr-scan.giftedtechnexus.co.ke/";
 
 module.exports = {
 
-  menu: process.env.MENU || "", /**  Available @MENU @Schemes 1: Aztec_Md, 2: A17_Md, 3: Gifted Default ---------- If Not Choose then it Randomely Pic One Of Them Each time **/
+  menu: process.env.MENU || "", /**  Available @MENU @Schemes Gifted Default ---------- If Not Choose then it Randomely Pic One Of Them Each time **/
 
   HANDLERS: process.env.PREFIX  || ".",
   BRANCH  : process.env.BRANCH  || "main",
-  VERSION : process.env.VERSION || "V.1.2.8",
-  caption : process.env.CAPTION || "©²⁰²⁴ ɢɪғᴛᴇᴅ ʙᴏᴛ ᴍᴅ" , // ```『 ᴘᴏᴡᴇʀᴇᴅ ʙʏ ɢɪғᴛᴇᴅ ᴛᴇᴄʜ 』```", //*『sᴜʙsᴄʀɪʙᴇ • ɢɪғᴛᴇᴅ ᴛᴇᴄʜ』*\n https://whatsapp.com/channel/0029VaJmfmTDJ6H7CmuBss0o"),
+  VERSION : process.env.VERSION || "V.2.0.0",
+  caption : process.env.CAPTION || "©²⁰²⁴ ɢɪғᴛᴇᴅ ʙᴏᴛ ᴍᴅᵛ²•⁰•⁰" , // ```『 ᴘᴏᴡᴇʀᴇᴅ ʙʏ ɢɪғᴛᴇᴅ ᴛᴇᴄʜ 』```", //*『sᴜʙsᴄʀɪʙᴇ • ɢɪғᴛᴇᴅ ᴛᴇᴄʜ』*\n https://whatsapp.com/channel/0029VaJmfmTDJ6H7CmuBss0o"),
  
   author : process.env.PACK_AUTHER|| "ɢɪғᴛᴇᴅ ᴛᴇᴄʜ",
   packname: process.env.PACK_NAME || "♥️",
@@ -123,7 +123,7 @@ let file = require.resolve(__filename)
 fs.watchFile(file, () => { fs.unwatchFile(file);console.log(`Update'${__filename}'`);delete require.cache[file];	require(file); })
  
 
-// ========================= [ Disables in V.1.2.8 ] ===============================\\  
+// ========================= [ Disables in V.2.0.0 ] ===============================\\  
   //style : process.env.STYLE || "2",  // put '1' & "2" here to check bot styles
   //readmessage:process.env.READ_MESSAGE|| "false",
   //warncount: process.env.WARN_COUNT || 5,
