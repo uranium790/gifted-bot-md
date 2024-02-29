@@ -1,5 +1,5 @@
 {
-   "name": "gifted-md",
+   "name": "gifted-md@ V.2.0.0",
    "version": "1.2.5-beta",
    "description": "Multi device whatsapp bot developed by GiftedTech.",
    "main": "lib/client.js",
