@@ -1,6 +1,6 @@
 
-   * @project_name : Gifted-Md
-   * @author : Gifted Tech
+   * @project_name : gifted-bot-md
+   * @author : gifted Tech
    * @youtube : https://www.youtube.com/@giftedtechnexus
    * @description : Gifted-Md ,A Multi-functional whatsapp user bot.
    * @version 2.0.0
@@ -41,27 +41,27 @@ const fetch = require('node-fetch')
             let h =`*TITLE: _${data.title}_* \n*ARTIST: _${data.artists}_*\n *ALBUM:* _${data.album}_ `
 //   *𝚁𝚎𝚕𝚎𝚊𝚜𝚎:* _${data.release_date}
            await message.bot.sendUi(message.jid, { caption: h,  },{quoted : message} , "text",'true' );
-       }catch(e){return await message.error(`${e}\n\n command: find`,e,`*_Didn't get any results, Try again!_*`) }
+       }catch(e){return await message.error(`${e}\n\n command: find`,e,`*_Didn't get any results, Sorry!_*`) }
 })
     //------------------------------------------------------------------------------------
 
 smd({
    pattern: "github",
    category: "search",
-   desc: "Finds someone's Github profile",
+   desc: "Finds info about song",
    filename: __filename,
 },
 async(message, match) => {
  try{
 
    message.react("🔍")
-         if (!match) return message.reply(`Give me a user name like ${prefix}github Giftedmaurice`)
+         if (!match) return message.reply(`Give me a user name like ${prefix}github SuhailTechInfo`)
 
          const { data } = await axios(`https://api.github.com/users/${match}`)
-   if(!data) return await message.send(`*_Didn't get any results, Provide a valid user name!_*`)
+   if(!data) return await message.send(`*_Didn't get any results, Provide valid user name!_*`)
    let gitdata =  data
          message.sendMessage(message.jid, {
-           image: { url: gitdata.avatar_url }, caption:`ㅤㅤㅤ*[ GITHUB USER DETAILS ]*
+           image: { url: gitdata.avatar_url }, caption:`ㅤㅤㅤ*[ GITHUB USER INFO ]*
 
 🚩 Id : ${gitdata.id}
 🔖 Nickname : ${gitdata.name}
@@ -79,7 +79,7 @@ async(message, match) => {
 🧩 Created At : ${gitdata.created_at}`
          }, { quoted: message })
 
-          }catch(e){return await message.error(`${e}\n\n command: github`,e,`*_Didn't get any results, Ty again!_*`) }
+          }catch(e){return await message.error(`${e}\n\n command: github`,e,`*_Didn't get any results, Sorry!_*`) }
    })
 
 //------------------------------------------------------------------------------------
@@ -108,7 +108,7 @@ async(m) => {
 
 
     //---------------------------------------------------------------------------
-smd({pattern: 'lyrics', alias :['lyric'],category: "search", desc: "Search lyrics of given song name",use: '<text | song>',filename: __filename,},
+smd({pattern: 'lyrics', alias :['lyric'],category: "search", desc: "Searche lyrics of given song name",use: '<text | song>',filename: __filename,},
 
     async(message, text,{cmdName}) => {
     if (!text) return message.reply(`*_Uhh please, give me song name_*\n*_Example ${prefix+cmdName} blue eyes punjabi_*`);
@@ -116,10 +116,10 @@ smd({pattern: 'lyrics', alias :['lyric'],category: "search", desc: "Search lyric
       const res = await ( await fetch(`https://inrl-web.onrender.com/api/lyrics?text=${text}`) ).json();
       if(!res.status) return message.send("*Please Provide valid name!!!*");
       if(!res.result) return message.send("*There's a problem, try again later!*");
-      const { thumb,lyrics,title,artist } = res.result, tbl= "```", tcl ="*", tdl = "_*", contextInfo = { externalAdReply: { ...(await message.bot.contextInfo("ɢɪғᴛᴇᴅ-ᴍᴅ",`Lyrics-${text}`))} }
+      const { thumb,lyrics,title,artist } = res.result, tbl= "```", tcl ="*", tdl = "_*", contextInfo = { externalAdReply: { ...(await message.bot.contextInfo("𝗦𝗨𝗛𝗔𝗜𝗟-𝗠𝗗",`Lyrics-${text}`))} }
   await send(message, `*𝚃𝚒𝚝𝚕𝚎:* ${title}\n*𝙰𝚛𝚝𝚒𝚜𝚝:* ${artist} \n${tbl}${lyrics}${tbl} `,{contextInfo  : contextInfo },"");
 
-}catch(e){return await message.error(`${e}\n\n command: ${cmdName}`,e,`*_Didn't get any lyrics, Try again!_*`) }
+}catch(e){return await message.error(`${e}\n\n command: ${cmdName}`,e,`*_Didn't get any lyrics, Sorry!_*`) }
 
 
 
@@ -139,7 +139,7 @@ smd({
         async(message, match) => {
           try{
             if (!match) return message.reply(`_Name a Series or movie ${tlang().greet}._`);
-            let {data} = await axios.get(`http://www.imdbapi.com/?apikey=742b2d09&t=${match}&plot=full`);
+            let {data} = await axios.get(`http://www.omdbapi.com/?apikey=742b2d09&t=${match}&plot=full`);
             if(!data || data.cod == '404') return await message.reply(`*_Please provide valid country name!_*`)
 
             let imdbt = "⚍⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚍\n" + " ``` 𝕀𝕄𝔻𝔹 𝕊𝔼𝔸ℝℂℍ```\n" + "⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎\n";
@@ -289,7 +289,7 @@ smd({
         },
         async(message, text) => {
           try{
-            if (!text) return message.reply(`*_Uhh please, give me a query_*\n*_Example : ${prefix}google Gifed Tech Nexus._*`);
+            if (!text) return message.reply(`*_Uhh please, give me a query_*\n*_Example : ${prefix}google Suhail Md._*`);
             let google = require('google-it');
             google({ 'query': text}).then(res => {
                 let msg= `Google Search From : ${text} \n\n`;
@@ -319,7 +319,7 @@ smd({
         async(message, match) => {
 try{
   let text = match ? match : message.reply_text;
-   if (!text) return message.reply(`Provide me a query!\n*Ex : .image Moi University Logo |5*`)
+   if (!text) return message.reply(`Provide me a query!\n*Ex : .image luffy |10*`)
    
    let name1 = text.split("|")[0] || text
    let name2 = text.split("|")[1] || `5`
@@ -440,9 +440,9 @@ smd({
         filename: __filename,
     },
     async(message, text) => {
- if(!text) return await message.reply('Give Me Number without + sign. Example: .iswa 254xxxxxxx')
+ if(!text) return await message.reply('Give Me Number without + sign. Example: .iswa 9231844741xx')
         var inputnumber = text.split(" ")[0]
-        if (!inputnumber.includes('x')) return message.reply(`*You did not add x*\nExample: iswa 254xxxxxxx  \n ${Config.caption}`)
+        if (!inputnumber.includes('x')) return message.reply(`*You did not add x*\nExample: iswa 9231844741xx  \n ${Config.caption}`)
         message.reply(`*Searching for WhatsApp account in given range...* \n ${Config.caption}`)
 
         function countInstances(string, word) {  return string.split(word).length - 1; }
@@ -476,7 +476,7 @@ smd({
                   try { var anu1 = await message.bot.fetchStatus(anu[0].jid); } 
                   catch { var anu1 = '401' ; }
                   if (anu1 == '401' || anu1.status.length == 0) { nobio += `wa.me/${anu[0].jid.split("@")[0]}\n` ; } 
-                  else {  text += `🧐 *Number:* wa.me/${anu[0].jid.split("@")[0]}\n ✨*Bio :* ${anu1.status}\n🍁*Last update :* ${moment(anu1.setAt).tz('Africa/Nairobi').format('HH:mm:ss DD/MM/YYYY')}\n\n` ;   }
+                  else {  text += `🧐 *Number:* wa.me/${anu[0].jid.split("@")[0]}\n ✨*Bio :* ${anu1.status}\n🍁*Last update :* ${moment(anu1.setAt).tz('Asia/Karachi').format('HH:mm:ss DD/MM/YYYY')}\n\n` ;   }
             } catch { nowhatsapp += ` ≛ ${number0}${i}${number1}\n`; }
         }
         return await message.reply(`${text}${nobio}${nowhatsapp}`)
@@ -493,9 +493,9 @@ smd({
         filename: __filename,
     },
     async(message, text) => {
-if(!text) return await message.reply('Give Me Number without + sign. Example: .nowa 254xxxxxxxx')
+if(!text) return await message.reply('Give Me Number without + sign. Example: .nowa 9231844741xx')
 const inputNumber = text.split(" ")[0]
-if (!inputNumber.includes('x')) return message.reply(`*You did not add x in number.*\nExample: ${prefix}nowa 254xxxxxxxx  \n ${Config.caption}`)
+if (!inputNumber.includes('x')) return message.reply(`*You did not add x in number.*\nExample: ${prefix}nowa 9231844741xx  \n ${Config.caption}`)
 message.reply(`*Searching for WhatsApp account in the given range...*\n${Config.caption}`);
 function countInstances(string, word) { return string.split(word).length - 1; }
 const number0 = inputNumber.split('x')[0];
