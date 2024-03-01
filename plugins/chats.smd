@@ -122,7 +122,7 @@ smd({
 smd({
 	pattern: 'markread',
 	fromMe: true,
-	desc: 'marks chat as read',
+	desc: 'mark as readed',
 	type: 'chats'
 }, async (message, match) => {
 
@@ -328,7 +328,6 @@ smd({
 	await message.send(`_Privacy Updated to *${match}*_`);
 }catch(e){ message.error(`${e}\n\nCommand : groupadd` , e, false) }
 })
-
 
 
 
